@@ -19,8 +19,11 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":dailyfeed-code"))
+
     implementation("org.springframework.data:spring-data-commons")
 	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

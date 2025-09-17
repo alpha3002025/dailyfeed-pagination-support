@@ -30,4 +30,18 @@ public class PageMapper {
                 .hasPrevious(page.hasPrevious())
                 .build();
     }
+
+    public <T> DailyfeedPage<T> emptyPage(){
+        return DailyfeedPage.<T>builder()
+                .content(List.of())
+                .page(0)
+                .size(0)
+                .totalElements(0)
+                .totalPages(0)
+                .isFirst(true)
+                .isLast(true)
+                .hasNext(false)
+                .hasPrevious(false)
+                .build();
+    }
 }

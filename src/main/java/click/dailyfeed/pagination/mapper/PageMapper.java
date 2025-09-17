@@ -9,7 +9,7 @@ import java.util.List;
 
 @Component
 public class PageMapper {
-    public <D, T> DailyfeedScrollPage<T> fromJpaPageToScrollPage(Page<D> page, List<T> result) {
+    public <D, T> DailyfeedScrollPage<T> fromJpaPageToDailyfeedScrollPage(Page<D> page, List<T> result) {
         return DailyfeedScrollPage.<T>builder()
                 .content(result)
                 .page(page.getNumber())

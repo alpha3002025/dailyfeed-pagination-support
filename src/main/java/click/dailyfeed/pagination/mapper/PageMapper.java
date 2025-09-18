@@ -1,7 +1,7 @@
 package click.dailyfeed.pagination.mapper;
 
-import click.dailyfeed.code.global.web.response.DailyfeedPage;
-import click.dailyfeed.code.global.web.response.DailyfeedScrollPage;
+import click.dailyfeed.code.global.web.page.DailyfeedPage;
+import click.dailyfeed.code.global.web.page.DailyfeedScrollPage;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class PageMapper {
                 .build();
     }
 
-    public <D, T>DailyfeedPage<T> fromJpaPageToDailyfeedPage(Page<D> page, List<T> content) {
+    public <D, T> DailyfeedPage<T> fromJpaPageToDailyfeedPage(Page<D> page, List<T> content) {
         return DailyfeedPage.<T>builder()
                 .content(content)
                 .page(page.getNumber())

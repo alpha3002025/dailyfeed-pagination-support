@@ -3,6 +3,7 @@ package click.dailyfeed.pagination.mapper;
 import click.dailyfeed.code.global.web.page.DailyfeedPage;
 import click.dailyfeed.code.global.web.page.DailyfeedScrollPage;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,6 +18,14 @@ public class PageMapper {
                 .build();
     }
 
+    public <D, T> DailyfeedScrollPage<T> fromJpaSliceToDailyfeedScrollPage(Slice<D> slice, List<T> result) {
+        return DailyfeedScrollPage.<T>builder()
+                .content(result)
+                .page(slice.getNumber())
+                .size(slice.getSize())
+                .build();
+    }
+
     public <D, T> DailyfeedPage<T> fromJpaPageToDailyfeedPage(Page<D> page, List<T> content) {
         return DailyfeedPage.<T>builder()
                 .content(content)
@@ -28,6 +37,14 @@ public class PageMapper {
                 .isLast(page.isLast())
                 .hasNext(page.hasNext())
                 .hasPrevious(page.hasPrevious())
+                .build();
+    }
+
+    public <T> DailyfeedScrollPage<T> emptyScrollPage(){
+        return DailyfeedScrollPage.<T>builder()
+                .content(List.of())
+                .page(0)
+                .size(0)
                 .build();
     }
 

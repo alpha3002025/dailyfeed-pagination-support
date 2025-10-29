@@ -23,6 +23,7 @@ public class PageMapper {
                 .content(result)
                 .page(slice.getNumber())
                 .size(slice.getSize())
+                .hasNext(slice.hasNext())
                 .build();
     }
 
